@@ -50,3 +50,44 @@ previous_element = element.find_previous('div', attrs={'class': 'previous'})
 
 ---
 
+- How to broadcast to all connected clients except sender with python flask socketio ?
+
+```
+
+@socketio.on('receiveMsg')
+def text(message, room):
+    emit('sendMsg', {'message': message}, broadcast=True, include_self=False, to=room)
+
+```
+
+---
+
+- How to check if all the elements of a list is truthy ?
+
+```
+
+truthy_list = [ 1, 1.3, True, 'wasd']
+not_truthy_list = [1, 0, True, 'wasd']
+
+print(f'is truthy_list all truthy ? {all(truthy_list)}') # is truthy_list all truthy ? True
+print(f'is not_truthy_list all truthy ? {all(not_truthy_list)}') # is not_truthy_list all truthy ? False
+
+```
+
+---
+
+- How to check if any the elements of a list is truthy ?
+
+```
+
+truthy_list = [ 0, False, 'd']
+not_truthy_list = [ 0, False, '']
+
+print(f'does truthy_list have any truthy ? {any(truthy_list)}') # is truthy_list all truthy ? True
+print(f'does not_truthy_list have any truthy ? {any(not_truthy_list)}') # is not_truthy_list all truthy ? False
+
+```
+
+---
+
+
